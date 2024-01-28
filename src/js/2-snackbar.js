@@ -3,7 +3,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.form');
 
-function createPromise(e) {
+function createPromise() {
   const delay = form.elements.delay.value;
   const state = form.elements.state.value;
   const promise = new Promise((resolve, reject) => {
@@ -23,6 +23,7 @@ function createPromise(e) {
 function submitHandler(e) {
   e.preventDefault();
   const promise = createPromise();
+  e.currentTarget.reset();
   promise.then(
     value => {
       iziToast.success({

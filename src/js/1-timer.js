@@ -8,6 +8,7 @@ const timerFieldDays = document.querySelector('[data-days]');
 const timerFielHours = document.querySelector('[data-hours]');
 const timerFieldMinutes = document.querySelector('[data-minutes]');
 const timerFieldSeconds = document.querySelector('[data-seconds]');
+const timerInput = document.querySelector('#datetime-picker');
 
 btnTimerStart.disabled = true;
 let timerId = null;
@@ -56,7 +57,7 @@ function onTimerStart() {
     const startTime = new Date();
     const countdown = userSelectedDate - startTime;
     btnTimerStart.disabled = true;
-
+    timerInput.disabled = true;
     if (countdown < 0) {
       clearInterval(timerId);
       return;
